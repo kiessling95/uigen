@@ -49,3 +49,9 @@ next-env.d.ts
 # database
 /prisma/dev.db
 /prisma/dev.db-journal
+
+# playwright mcp artifacts
+.playwright-mcp/
+
+# screenshots
+*.png

@@ -14,6 +14,23 @@ export function PreviewFrame() {
   const [error, setError] = useState<string | null>(null);
   const [entryPoint, setEntryPoint] = useState<string>("/App.jsx");
   const [isFirstLoad, setIsFirstLoad] = useState(true);
+  const [iframeHasFocus, setIframeHasFocus] = useState(false);
+
+  // When the iframe content captures browser focus, the parent window blurs.
+  // On Safari/Firefox, this can cause the first click on parent UI elements
+  // (like the toggle tabs) to not register. We track this and show a transparent
+  // overlay so the "focus return" click is absorbed by the overlay instead of
+  // being lost, leaving subsequent clicks to reach their intended targets.
+  useEffect(() => {
+    const handleBlur = () => setIframeHasFocus(true);
+    const handleFocus = () => setIframeHasFocus(false);
+    window.addEventListener("blur", handleBlur);
+    window.addEventListener("focus", handleFocus);
+    return () => {
+      window.removeEventListener("blur", handleBlur);
+      window.removeEventListener("focus", handleFocus);
+    };
+  }, []);
 
   useEffect(() => {
     const updatePreview = () => {
@@ -151,10 +168,18 @@ export function PreviewFrame() {
   }
 
   return (
-    <iframe
-      ref={iframeRef}
-      className="w-full h-full border-0 bg-white"
-      title="Preview"
-    />
+    <div className="relative w-full h-full">
+      <iframe
+        ref={iframeRef}
+        className="w-full h-full border-0 bg-white"
+        title="Preview"
+      />
+      {iframeHasFocus && (
+        <div
+          className="absolute inset-0 z-10"
+          onPointerDown={() => setIframeHasFocus(false)}
+        />
+      )}
+    </div>
   );
 }

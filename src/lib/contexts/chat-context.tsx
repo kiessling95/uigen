@@ -54,7 +54,8 @@ export function ChatProvider({
       if (message.role !== "assistant") continue;
       const parts = (message as any).parts ?? [];
       for (const part of parts) {
-        const { toolCallId, toolName, state } = part;
+        const { toolCallId, state } = part;
+        const toolName = part.toolName ?? (typeof part.type === "string" && part.type.startsWith("tool-") ? part.type.slice("tool-".length) : undefined);
         if (!toolCallId || !toolName) continue;
         if (appliedToolCallIds.current.has(toolCallId)) continue;
         // Accept any completed state (v6: output-available, legacy: result)

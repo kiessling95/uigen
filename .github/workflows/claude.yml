@@ -32,8 +32,8 @@ jobs:
 
       - name: Project setup
         run: |
-          rpm run setup
-          rpm run dev:daemon
+          npm run setup
+          npm run dev:daemon
 
       - name: Run Claude Code
         id: claude

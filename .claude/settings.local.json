@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx vitest *)",
+      "Bash(node -e \"const p = require\\('./node_modules/@ai-sdk/anthropic/package.json'\\); console.log\\(p.version\\)\")",
+      "Bash(npm run *)",
+      "Bash(npx tsc *)",
+      "Bash(npm install *)",
+      "Bash(npm audit *)",
+      "Bash(New-Item -ItemType Directory -Force -Path \"C:\\\\Users\\\\gkies\\\\OneDrive\\\\Escritorio\\\\uigen\\\\src\\\\lib\\\\tools\\\\__tests__\")",
+      "Bash(Out-Null)",
+      "Bash(New-Item -ItemType Directory -Force -Path \"C:\\\\Users\\\\gkies\\\\OneDrive\\\\Escritorio\\\\uigen\\\\src\\\\hooks\\\\__tests__\")",
+      "Bash(Write-Output \"Dirs created\")",
+      "Bash(node -e \"const r = require\\('./node_modules/react/package.json'\\); const rd = require\\('./node_modules/react-dom/package.json'\\); console.log\\('react:', r.version, '| react-dom:', rd.version\\)\")"
+    ]
+  }
+}

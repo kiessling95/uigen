@@ -11,7 +11,12 @@
       "Bash(Out-Null)",
       "Bash(New-Item -ItemType Directory -Force -Path \"C:\\\\Users\\\\gkies\\\\OneDrive\\\\Escritorio\\\\uigen\\\\src\\\\hooks\\\\__tests__\")",
       "Bash(Write-Output \"Dirs created\")",
-      "Bash(node -e \"const r = require\\('./node_modules/react/package.json'\\); const rd = require\\('./node_modules/react-dom/package.json'\\); console.log\\('react:', r.version, '| react-dom:', rd.version\\)\")"
+      "Bash(node -e \"const r = require\\('./node_modules/react/package.json'\\); const rd = require\\('./node_modules/react-dom/package.json'\\); console.log\\('react:', r.version, '| react-dom:', rd.version\\)\")",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_type",
+      "mcp__playwright__browser_wait_for",
+      "Bash(git add *)"
     ]
   }
 }

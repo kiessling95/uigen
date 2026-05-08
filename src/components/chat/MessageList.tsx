@@ -43,9 +43,9 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
                   : "bg-white text-neutral-900 border border-neutral-200 shadow-sm"
               )}>
                 <div className="text-sm">
-                  {message.parts.length > 0 ? (
+                  {(message.parts?.length ?? 0) > 0 ? (
                     <>
-                      {message.parts.map((part: AnyPart, partIndex: number) => {
+                      {(message.parts ?? []).map((part: AnyPart, partIndex: number) => {
                         switch (part.type) {
                           case "text":
                             return message.role === "user" ? (
